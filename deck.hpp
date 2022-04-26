@@ -9,6 +9,7 @@ public:
 	Deck();
 	Deck(int,int,int);
     Cards remove(int);
+	Cards add(Cards c);
 	void draw();
 	bool isEmpty();
 	int getSize();
