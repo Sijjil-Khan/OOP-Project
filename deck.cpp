@@ -26,6 +26,11 @@ void Deck::draw_card(){
         return stacks.size();
         }
 
+    Cards Deck::add(Cards c){
+        stacks[Top+1]=c;
+        Top++;
+    }
+
     Cards Deck:: remove(int idx){
         if(!isEmpty()){
             // Top--;
@@ -51,18 +56,23 @@ void Deck::draw_card(){
 
     if (true){
         //SDL_Rect r = {710,383,71,100}; // real
-        SDL_Rect r = {639,383,71,100}; // trial
+        SDL_Rect r = {639,383,71,115}; // trial
         SDL_RenderCopy(Drawing::gRenderer, Drawing::assets, &r, &moverRect);
         Size -= 3;
-
+int y = 50;
         for (int i = 0; i<3; i++){
-            SDL_Rect d = {639,383,71,100};
-            SDL_Rect a = {30,40,50,100};
+            if (opened_cards-i<0){
+                break;
+            }
+            SDL_Rect d = {639,383,71,115};
+            SDL_Rect a = {850,y,71,115};
+             SDL_RenderCopy(Drawing::gRenderer, Drawing::assets, &d, &a);
+             y+=25;
         }
     }
     else{
             Size = 0;
-            SDL_Rect r = {639,383,71,100};
+            SDL_Rect r = {639,383,71,115};
             SDL_Rect m = {};
 
             SDL_RenderCopy(Drawing::gRenderer, Drawing::assets, &r, &m);
